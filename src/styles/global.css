@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Hack';
+  src: url('/fonts/hack-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'Hack';
+}

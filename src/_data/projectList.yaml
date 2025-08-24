@@ -1,0 +1,17 @@
+projects:
+  - name: NixOS Configuration
+    link: https://github.com/ultomnis/nixos-config
+    description: >
+      My Nix flakes used to configure my personal machines.
+      Includes NixOS, Home Manager, and nix-darwin systems.
+    toolkit:
+      - Nix
+  - name: Personal Website
+    link: https://github.com/ultomnis/personal-website
+    description: >
+      This very website you are gazing upon right now.
+      Minimal and easy to deploy.
+    toolkit:
+      - 11ty
+      - Nunjucks
+      - Tailwind CSS
