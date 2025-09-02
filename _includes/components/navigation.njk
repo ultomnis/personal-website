@@ -1,0 +1,21 @@
+<header
+  id="navigation"
+  class="relative top-0 left-0 right-0 z-50 transform-3d bg-black/20 backdrop-blur-md px-5"
+>
+  <div class="max-w-7xl mx-auto flex justify-center items-center h-8 md:h-12">
+    <nav class="py-2 translate-z-0 overflow-x-auto scrollbar-hidden">
+      <ul class="flex gap-5 text-white text-sm md:text-base whitespace-nowrap">
+        {% for entry in collections.all | eleventyNavigation %}
+          <li>
+            <a
+              href="{{ entry.url }}"
+              class="hover:text-blue-300 hover:underline"
+            >
+              {{ entry.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

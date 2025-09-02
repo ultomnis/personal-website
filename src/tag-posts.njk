@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+eleventyComputed:
+  title: "Tagged {{ tag }}"
+  description: "List of posts tagged {{ tag }}"
+pagination:
+  data: collections.postsByTag
+  size: 1
+  alias: tag
+  filter:
+    - posts
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<div class="flex flex-col h-screen justify-between">
+  {% include "components/navigation.njk" %}
+  <div class="max-w-7xl mx-auto mb-auto w-full px-5 mt-8">
+    <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-5">{{ title }}</h1>
+    <div class="flex flex-col">
+      <ul>
+        {% for post in collections[tag] | reverse %}
+          <li>
+            {% if loop.index0 == 0 %}
+              <hr class="border-t-1 border-gray-600 my-2">
+            {% endif %}
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+              <a href="{{ post.url }}">
+                <h2 class="text-base sm:text-lg md:text-xl text-white">
+                  <span class="hover:text-blue-300 hover:underline">{{ post.data.title }}</span>
+                </h2>
+              </a>
+              <time
+                class="text-xs sm:text-sm md:text-base text-gray-300 whitespace-nowrap"
+                datetime="{{ post.date | htmlDate }}"
+              >
+                {{ post.date | naturalDate }}
+              </time>
+            </div>
+            <hr class="border-t-1 border-gray-600 my-2">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% include "components/footer.njk" %}
+</div>

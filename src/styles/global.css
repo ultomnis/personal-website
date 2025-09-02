@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 @font-face {
   font-family: 'Hack';
@@ -11,3 +12,15 @@
 @theme {
   --font-sans: 'Hack';
 }
+
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+

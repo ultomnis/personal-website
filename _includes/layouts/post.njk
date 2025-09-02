@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="flex flex-col h-screen justify-between">
+  {% include "components/navigation.njk" %}
+  <div class="max-w-3xl mx-auto mb-auto w-full px-5 mt-8">
+    <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-5">{{ title }}</h1>
+    <p>
+      <span class="text-gray-300">Date Published:</span>
+      <time datetime="{{ page.date | htmlDate }}">{{ page.date | naturalDate }}</time>
+    </p>
+    {% if lastmod %}
+      <p>
+        <span class="text-gray-300">Last Modified:</span>
+        <time datetime="{{ lastmod | htmlDate }}">{{ lastmod | naturalDate }}</time>
+      </p>
+    {% endif %}
+    <div class="my-5">
+      <h2 class="inline text-gray-300">Tags:</h2>
+      <ul class="inline">
+        {% for tag in tags %}
+          {% if tag != 'posts' %}
+            <li class="inline">
+              <a
+                href="/tags/{{ tag | slugify }}/"
+                class="text-white hover:text-blue-300 hover:underline"
+              >#{{ tag }}</a>
+              {%- if not loop.last %}<span class="text-white">,</span>{% endif %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="max-w-3xl mx-auto prose dark:prose-invert prose-sm md:prose-base prose-a:hover:text-blue-300">
+      <p>{{ content | safe }}</p>
+    </div>
+    <p class="text-white mt-8">
+      &copy; This work is licensed under
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Post license"
+        >
+          <span class="underline hover:text-blue-300">CC BY 4.0</span>.
+        </a>
+    </p>
+  </div>
+  {% include "components/footer.njk" %}
+</div>

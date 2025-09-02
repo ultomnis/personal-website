@@ -1,8 +1,12 @@
+import { HtmlBasePlugin } from "@11ty/eleventy";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import Image from '@11ty/eleventy-img';
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import fs from 'fs';
-import Image from '@11ty/eleventy-img';
+import { DateTime } from "luxon";
 import path from 'path';
 import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
@@ -32,13 +36,55 @@ const processCss = async (source, destination) => {
 }
 
 export default async function (eleventyConfig) {
-  // Process Tailwind CSS
-  eleventyConfig.on('eleventy.before', async () => {
-    const tailwindSource = path.resolve('./src/styles/global.css');
-    const tailwindDestination = './dist/styles/global.css';
-    const outputPath = path.dirname(tailwindDestination);
-    ensureDirectoryExists(outputPath);
-    await processCss(tailwindSource, tailwindDestination)
+  eleventyConfig.addCollection("getTags", function(collection) {
+    let tags = new Set();
+
+    collection.getFilteredByGlob("./src/blog/**/*.md").forEach(post => {
+      if (post.data.tags) {
+        post.data.tags.forEach(tag => tags.add(tag))
+      }
+    });
+
+    return Array.from(tags).sort();
+  })
+  
+  eleventyConfig.addCollection("postsByTag", function(collection) {
+    let postsByTag = {};
+
+    collection.getFilteredByGlob("./src/blog/**/*.md").forEach(post => {
+      if (post.data.tags) {
+        post.data.tags.forEach(tag => {
+          if (!postsByTag[tag]) {
+            postsByTag[tag] = [];
+          }
+          postsByTag[tag].push(post);
+        });
+      }
+    });
+
+    return postsByTag;
+  });
+
+  eleventyConfig.addDataExtension("yaml", (contents) => YAML.parse(contents))
+
+  eleventyConfig.addFilter("head", (array, n) => {
+    if(!Array.isArray(array) || array.length === 0) {
+      return [];
+    }
+
+    if (n < 0) {
+      return array.slice(n);
+    }
+
+    return array.slice(0, n);
+  });
+
+  eleventyConfig.addFilter("htmlDate", function(date) {
+    return DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy-MM-dd");
+  });
+
+  eleventyConfig.addFilter("naturalDate", function(date) {
+    return DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy LLL dd");
   });
 
   // Shortcode to inline SVGs
@@ -51,11 +97,47 @@ export default async function (eleventyConfig) {
     const svg = metadata.svg[0].buffer.toString()
     return svg.replace(/<svg /, `<svg width="${width}" height="${height}" class="${classes}" `);
   });
-
-  eleventyConfig.addDataExtension("yaml", (contents) => YAML.parse(contents))
+  
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/fonts/hack-regular.woff2");
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/feed.xml",
+    collection: {
+      name: "posts",
+      limit: 10,
+    },
+    metadata: {
+      language: "en",
+      title: "James Yu",
+      subtitle: "A collection of thoughts and analyses on tech, digital privacy, and more.",
+      base: "https://jmsyu.com",
+      author: {
+        name: "James Yu",
+      }
+    }
+  });
+  
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  eleventyConfig.addShortcode("currentYear", () => {
+    return new Date().getFullYear();
+  });
+
+  // Process Tailwind CSS
+  eleventyConfig.on('eleventy.before', async () => {
+    const tailwindSource = path.resolve('./src/styles/global.css');
+    const tailwindDestination = './dist/styles/global.css';
+    const outputPath = path.dirname(tailwindDestination);
+    ensureDirectoryExists(outputPath);
+    await processCss(tailwindSource, tailwindDestination)
+  });
+
+  eleventyConfig.setDataDirectory("../_data");
+  eleventyConfig.setIncludesDirectory("../_includes");
   eleventyConfig.setInputDirectory("src");
   eleventyConfig.setOutputDirectory("dist");
 }
