@@ -3,7 +3,7 @@
   class="mt-12"
 >
   <div class="max-w-7xl mx-auto px-5">
-    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-5">Open Source Projects</h2>
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-5">Open Source Projects</h3>
     <div class="flex flex-col gap-y-5">
       {% for project in projectList.projects %}
         <a
@@ -12,9 +12,9 @@
           rel="noopener noreferrer"
           class="flex flex-col bg-gray-900 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-1 hover:translate-x-1"
         >
-          <h3 class="text-base sm:text-lg md:text-xl text-white">
+          <h4 class="text-base sm:text-lg md:text-xl text-white">
             <span class="hover:text-blue-300 hover:underline">{{ project.name }}</span>
-          </h3>
+          </h4>
           <p class="text-sm sm:text-base md:text-lg text-gray-300 mt-5">{{ project.description }}</p>
 
           <ul class="flex flex-wrap gap-2 sm:gap-3 pt-5">
