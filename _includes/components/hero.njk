@@ -1,52 +1,47 @@
-<section
-  id="hero"
-  class="relative w-full"
->
-  <div class="h-96 lg:h-128 py-48 flex">
-    <img
-      src="/assets/images/anuj-yadav-tYfXAQPqmXg-unsplash.jpg"
-      alt="A mountain range basking in the sunlight."
-      class="absolute inset-0 object-cover w-full h-full z-0"
-      eleventy:widths="400,800,1200,2400"
-      sizes="100vw"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-    />
-    <div class="absolute inset-0 bg-black/50 z-0"></div>
-    <div class="max-w-7xl mx-auto flex justify-center h-full w-full z-10 px-5">
-      <div class="flex flex-col justify-center text-white">
-        <h1 class="text-lg sm:text-xl md:text-2xl">
-          Hello,<div class="leading-2"><br></div><span class="text-xl sm:text-2xl md:text-3xl font-bold">I'm {{ meta.name }}</span>
-        </h1>
-        <h2 class="mt-2 text-sm sm:text-base md:text-lg text-gray-300">Software developer and IT specialist</h2>
-        <div class="flex mt-2 space-x-4 items-center">
-          <a
-            href="mailto:{{ meta.email }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email"
-          >
-            {% inlineSvg "mail.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
-          </a>
-          <a
-            href="{{ meta.github }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            {% inlineSvg "github.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
-          </a>
-          <a
-            href="{{ meta.linkedin }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
-          </a>
-        </div>
+<div class="relative w-full h-96 lg:h-128 py-48 flex">
+  <img
+    src="/assets/images/anuj-yadav-tYfXAQPqmXg-unsplash.jpg"
+    alt="A mountain range basking in the sunlight."
+    class="absolute inset-0 object-cover w-full h-full z-0"
+    eleventy:widths="400,800,1200,2400"
+    sizes="100vw"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+  />
+  <div class="absolute inset-0 bg-black/50 z-0"></div>
+  <div class="max-w-7xl mx-auto flex justify-center h-full w-full z-10 px-5">
+    <div class="flex flex-col justify-center text-white">
+      <h1 class="text-lg sm:text-xl md:text-2xl">
+        Hello,<div class="leading-2"><br></div><span class="text-xl sm:text-2xl md:text-3xl font-bold">I'm {{ meta.name }}</span>
+      </h1>
+      <h2 class="mt-2 text-sm sm:text-base md:text-lg text-gray-300">Software developer and IT specialist</h2>
+      <div class="flex mt-2 space-x-4 items-center">
+        <a
+          href="mailto:{{ meta.email }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email"
+        >
+          {% inlineSvg "mail.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        </a>
+        <a
+          href="{{ meta.github }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          {% inlineSvg "github.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        </a>
+        <a
+          href="{{ meta.linkedin }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        </a>
       </div>
     </div>
   </div>
-</section>
+</div>
