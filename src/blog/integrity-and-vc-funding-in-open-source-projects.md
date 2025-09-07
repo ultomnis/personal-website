@@ -15,7 +15,7 @@ VC funding include [Tailscale](https://tailscale.com/blog/series-c),
 [Zed](https://zed.dev/blog/sequoia-backs-zed), and
 [Bitwarden](https://bitwarden.com/blog/accelerating-value-for-bitwarden-users-bitwarden-raises-usd100-million/).
 
-A growing number of open-source companies are gravitating toward VC funding, and not all make it
+A growing number of companies building open-source software are gravitating toward VC funding, and not all make it
 out without consequences. Of course, VC funding doesn't always spell doom and gloom, and not all
 VC firms are created with bad intentions (see [Mozilla Ventures](https://mozilla.vc/)).
 Nevertheless, it should be stated that with VC firms involved, profitability becomes a driving
