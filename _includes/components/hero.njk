@@ -12,16 +12,17 @@
   <div class="absolute inset-0 bg-black/50 z-0"></div>
   <div class="max-w-7xl mx-auto flex justify-center h-full w-full z-10 px-5">
     <div class="flex flex-col justify-center text-white">
-      <h1 class="text-lg sm:text-xl md:text-2xl">
-        Hello,<div class="leading-2"><br></div><span class="text-xl sm:text-2xl md:text-3xl font-bold">I'm {{ meta.name }}</span>
+      <h1 class="text-lg md:text-xl lg:text-2xl">
+        Hello,<div class="leading-2"><br></div><span class="text-xl md:text-2xl lg:text-3xl font-bold">I'm {{ meta.name }}</span>
       </h1>
-      <h2 class="mt-2 text-sm sm:text-base md:text-lg text-gray-300">Software developer and IT specialist</h2>
+      <h2 class="mt-2 text-sm md:text-base lg:text-lg text-gray-300">Software developer and IT specialist</h2>
       <div class="flex mt-2 space-x-4 items-center">
         <a
           href="mailto:{{ meta.email }}"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Email"
+          class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
         >
           {% inlineSvg "mail.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
         </a>
@@ -30,6 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
+          class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
         >
           {% inlineSvg "github.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
         </a>
@@ -38,6 +40,7 @@
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
         >
           {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
         </a>

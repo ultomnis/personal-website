@@ -14,13 +14,21 @@ eleventyExcludeFromCollections: true
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
-    <h1 class="my-5 text-2xl sm:text-3xl md:text-4xl">Page not found.</h1>
-    <p>
+    <h1 class="my-5 text-2xl md:text-3xl lg:text-4xl">Page not found.</h1>
+    <p class="text-base md:text-lg lg:text-xl">
       <a
         href="{{ '/' }}"
-        class = "text-base md:text-lg underline hover:text-blue-300"
+        class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
       >
-        Return to homepage
+        <span
+          class="
+            decoration-dashed underline
+            hover:text-blue-300 hover:decoration-solid
+            active:text-purple-300 active:no-underline
+          "
+        >
+          Return to homepage
+        </span>
       </a>
     </p>
   </body>

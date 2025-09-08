@@ -3,15 +3,23 @@
   class="relative top-0 left-0 right-0 z-50 transform-3d bg-black/20 backdrop-blur-md px-5"
 >
   <div class="max-w-7xl mx-auto flex justify-center items-center h-10 md:h-12">
-    <nav class="py-2 translate-z-0 overflow-x-auto scrollbar-hidden">
-      <ul class="flex gap-5 text-white text-sm md:text-base whitespace-nowrap">
+    <nav class="py-2 px-2 translate-z-0 overflow-x-auto scrollbar-hidden">
+      <ul class="flex gap-5 text-sm md:text-base text-white whitespace-nowrap">
         {% for entry in collections.all | eleventyNavigation %}
           <li>
             <a
               href="{{ entry.url }}"
-              class="hover:text-blue-300 hover:underline"
+              class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
             >
-              {{ entry.title }}
+              <span
+                class="
+                  decoration-dashed underline
+                  hover:text-blue-300 hover:decoration-solid
+                  active:text-purple-300 active:no-underline
+                "
+              >
+                {{ entry.title }}
+              </span>
             </a>
           </li>
         {% endfor %}
