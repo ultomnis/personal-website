@@ -9,7 +9,7 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Email"
-        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+        class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
         {% inlineSvg "mail.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
       </a>
@@ -18,7 +18,7 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
-        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+        class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
         {% inlineSvg "github.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
       </a>
@@ -27,7 +27,7 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
-        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+        class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
         {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
       </a>
@@ -39,15 +39,14 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Website license"
-        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+        class="
+          decoration-dashed underline underline-offset-6
+          hover:text-blue-300 hover:decoration-solid
+          active:text-purple-300 active:no-underline
+          focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
+        "
       >
-        <span
-          class="
-            decoration-dashed underline
-            hover:text-blue-300 hover:decoration-solid
-            active:text-purple-300 active:no-underline
-          "
-        >MIT License</span></a>.
+        MIT License</a>.
     </p>
   </div>
 </footer>

@@ -18,17 +18,14 @@ eleventyExcludeFromCollections: true
     <p class="text-base md:text-lg lg:text-xl">
       <a
         href="{{ '/' }}"
-        class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+        class="
+          decoration-dashed underline underline-offset-6
+          hover:text-blue-300 hover:decoration-solid
+          active:text-purple-300 active:no-underline
+          focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
+        "
       >
-        <span
-          class="
-            decoration-dashed underline
-            hover:text-blue-300 hover:decoration-solid
-            active:text-purple-300 active:no-underline
-          "
-        >
-          Return to homepage
-        </span>
+        Return to homepage
       </a>
     </p>
   </body>

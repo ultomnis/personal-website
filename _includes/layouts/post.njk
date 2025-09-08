@@ -30,31 +30,28 @@ fontPreload: true
     <div
       class="
         max-w-3xl mx-auto prose dark:prose-invert prose-sm md:prose-base
-        prose-a:decoration-dashed prose-a:underline
+        prose-a:decoration-dashed prose-a:underline prose-a:underline-offset-6
         prose-a:hover:text-blue-300 prose-a:hover:decoration-solid
         prose-a:active:text-purple-300 prose-a:active:no-underline
-        prose-a:focus-visible:outline-2 prose-a:focus-visible:outline-offset-2 prose-a:focus-visible:outline-blue-300
+        prose-a:focus-visible:outline-2 prose-a:focus-visible:outline-offset-0 prose-a:focus-visible:outline-blue-300
       "
     >
       <p>{{ content | safe }}</p>
     </div>
-    <ul class="flex flex-wrap gap-x-4 gap-y-2">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2">
       {% for tag in tags %}
         {% if tag != 'posts' %}
           <li class="text-base md:text-lg text-white">
             <a
               href="/tags/{{ tag | slugify }}/"
-              class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+              class="
+                decoration-dashed underline underline-offset-6
+                hover:text-blue-300 hover:decoration-solid
+                active:text-purple-300 active:no-underline
+                focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
+              "
             >
-              <span
-                class="
-                  decoration-dashed underline
-                  hover:text-blue-300 hover:decoration-solid
-                  active:text-purple-300 active:no-underline
-                "
-              >
-                #{{ tag }}
-              </span>
+              #{{ tag }}
             </a>
           </li>
         {% endif %}
@@ -67,15 +64,14 @@ fontPreload: true
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Post license"
-          class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
+          class="
+            decoration-dashed underline underline-offset-6
+            hover:text-blue-300 hover:decoration-solid
+            active:text-purple-300 active:no-underline
+            focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
+          "
         >
-          <span
-            class="
-              decoration-dashed underline
-              hover:text-blue-300 hover:decoration-solid
-              active:text-purple-300 active:no-underline
-            "
-          >CC BY 4.0</span></a>.
+          CC BY 4.0</a>.
     </p>
   </div>
   {% include "components/footer.njk" %}

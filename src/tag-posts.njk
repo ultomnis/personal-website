@@ -25,22 +25,19 @@ fontPreload: true
               <hr class="border-t-1 border-gray-600 my-2">
             {% endif %}
             <div class="flex flex-col sm:flex-row justify-between items-center">
-              <a
-                href="{{ post.url }}"
-                class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
-              >
-                <h2 class="text-base md:text-lg lg:text-xl text-white">
-                  <span
-                    class="
-                      decoration-dashed underline
-                      hover:text-blue-300 hover:decoration-solid
-                      active:text-purple-300 active:no-underline
-                    "
-                  >
-                    {{ post.data.title }}
-                  </span>
-                </h2>
-              </a>
+              <h2 class="text-base md:text-lg lg:text-xl text-white">
+                <a
+                  href="{{ post.url }}"
+                  class="
+                    decoration-dashed underline underline-offset-6
+                    hover:text-blue-300 hover:decoration-solid
+                    active:text-purple-300 active:no-underline
+                    focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
+                  "
+                >
+                  {{ post.data.title }}
+                </a>
+              </h2>
               <time
                 class="text-xs md:text-sm lg:text-base text-gray-300 whitespace-nowrap"
                 datetime="{{ post.date | htmlDate }}"
