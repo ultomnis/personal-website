@@ -33,7 +33,7 @@ fontPreload: true
         prose-a:decoration-dashed prose-a:underline
         prose-a:hover:text-blue-300 prose-a:hover:decoration-solid
         prose-a:active:text-purple-300 prose-a:active:no-underline
-        prose-a:focus:outline-2 prose-a:focus:outline-offset-2 prose-a:focus:outline-blue-300
+        prose-a:focus-visible:outline-2 prose-a:focus-visible:outline-offset-2 prose-a:focus-visible:outline-blue-300
       "
     >
       <p>{{ content | safe }}</p>
@@ -44,7 +44,7 @@ fontPreload: true
           <li class="text-base md:text-lg text-white">
             <a
               href="/tags/{{ tag | slugify }}/"
-              class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
+              class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
             >
               <span
                 class="
@@ -67,7 +67,7 @@ fontPreload: true
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Post license"
-          class="focus:outline-2 focus:outline-offset-2 focus:outline-blue-300"
+          class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-300"
         >
           <span
             class="
