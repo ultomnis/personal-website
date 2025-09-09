@@ -3,6 +3,7 @@ layout: layouts/base.njk
 eleventyComputed:
   title: "Tagged {{ tag }}"
   description: "List of posts tagged {{ tag }}"
+eleventyExcludeFromCollections: true
 pagination:
   data: collections.postsByTag
   size: 1
