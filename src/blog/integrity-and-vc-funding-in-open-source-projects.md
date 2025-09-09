@@ -1,7 +1,7 @@
 ---
 title: Integrity and VC Funding in Open-Source Projects
 description: Insights and interpretations concerning venture capitalist funding in open-source projects.
-date: 2025-09-02
+date: 2025-09-02T18:13:00
 tags:
   - ethics
   - open-source
