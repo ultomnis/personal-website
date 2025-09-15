@@ -14,18 +14,18 @@ eleventyExcludeFromCollections: true
     <name>{{ meta.name }}</name>
   </author>
   {%- for post in collections.posts | reverse | head(10) %}
-    {%- set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.url) }}{% endset %}
-    {%- if post.data.lastmod %}
-      {%- set lastupdated = post.data.lastmod | timezoneDate %}
-    {%- else %}
-      {%- set lastupdated = post.date | timezoneDate %}
-    {%- endif %}
-    <entry>
-      <title>{{ post.data.title }}</title>
-      <link href="{{ absolutePostUrl }}" />
-      <updated>{{ lastupdated | dateToRfc3339 }}</updated>
-      <id>{{ absolutePostUrl }}</id>
-      <content type="html">{{ post.content | renderTransforms(post.data.page, meta.url) }}</content>
-    </entry>
+  {%- set absolutePostUrl %}{{ post.url | htmlBaseUrl(meta.url) }}{% endset %}
+  {%- if post.data.lastmod %}
+    {%- set lastupdated = post.data.lastmod | timezoneDate %}
+  {%- else %}
+    {%- set lastupdated = post.date | timezoneDate %}
+  {%- endif %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    <updated>{{ lastupdated | dateToRfc3339 }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.content | renderTransforms(post.data.page, meta.url) }}</content>
+  </entry>
   {%- endfor %}
 </feed>

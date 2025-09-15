@@ -7,7 +7,6 @@ tags:
   - open-source
   - tech
 ---
-
 Venture capital (VC) funding has become nearly ubiquitous with the tech sector. Aided by the AI
 boom, VC funding continues to have far-reaching impacts in all areas of tech, including in the
 open-source space. Prominent companies that make their products open source and have taken on
