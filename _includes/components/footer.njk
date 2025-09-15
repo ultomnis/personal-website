@@ -1,6 +1,6 @@
 <footer
   id="footer"
-  class="bg-black border-t-2 border-gray-900 mt-12"
+  class="bg-white dark:bg-black border-t-2 border-gray-200 dark:border-gray-800 mt-12"
 >
   <div class="max-w-7xl mx-auto p-4 lg:p-6">
     <div class="flex space-x-4 items-center">
@@ -11,7 +11,7 @@
         aria-label="Email"
         class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
-        {% inlineSvg "mail.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        {% inlineSvg "mail.svg", "32", "32", "fill-gray-700 hover:fill-gray-400 dark:fill-gray-400 dark:hover:fill-gray-100 transition-colors duration-200" %}
       </a>
       <a
         href="{{ meta.github }}"
@@ -20,7 +20,7 @@
         aria-label="GitHub"
         class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
-        {% inlineSvg "github.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        {% inlineSvg "github.svg", "32", "32", "fill-gray-700 hover:fill-gray-400 dark:fill-gray-400 dark:hover:fill-gray-100 transition-colors duration-200" %}
       </a>
       <a
         href="{{ meta.linkedin }}"
@@ -29,10 +29,10 @@
         aria-label="LinkedIn"
         class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
       >
-        {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-400 transition-colors duration-200 hover:fill-gray-100" %}
+        {% inlineSvg "linkedin.svg", "32", "32", "fill-gray-700 hover:fill-gray-400 dark:fill-gray-400 dark:hover:fill-gray-100 transition-colors duration-200" %}
       </a>
     </div>
-    <p class="text-white mt-4 text-sm md:text-base">
+    <p class="text-black dark:text-white mt-4 text-sm md:text-base">
       &copy; {% currentYear %} {{ meta.name }}. Licensed under the
       <a
         href="{{ meta.license }}"
@@ -40,8 +40,8 @@
         rel="noopener noreferrer"
         class="
           decoration-dashed underline underline-offset-6
-          hover:text-blue-300 hover:decoration-solid
-          active:text-purple-300 active:no-underline
+          hover:text-blue-700 dark:hover:text-blue-300 hover:decoration-solid
+          active:text-purple-700 dark:active:text-purple-300 active:no-underline
           focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
         "
       >

@@ -6,12 +6,12 @@ fontPreload: true
 <div class="flex flex-col h-dvh justify-between">
   {% include "components/navigation.njk" %}
   <article class="max-w-3xl mx-auto mb-auto w-full px-5 mt-8">
-    <h1 class="text-2xl md:text-3xl font-bold text-white mb-5">{{ title }}</h1>
+    <h1 class="text-2xl md:text-3xl font-bold text-black dark:text-white mb-5">{{ title }}</h1>
     <div class="mb-5">
       <div>
-        <span class="text-sm md:text-base text-gray-300">Date Published:</span>
+        <span class="text-sm md:text-base text-gray-700 dark:text-gray-300">Date Published:</span>
         <time
-          class="text-sm md:text-base text-white"
+          class="text-sm md:text-base text-black dark:text-white"
           datetime="{{ page.date | htmlDate }}"
         >
           {{ page.date | naturalDate }}
@@ -19,9 +19,9 @@ fontPreload: true
       </div>
       {% if lastmod %}
         <div class="mt-2">
-          <span class="text-sm md:text-base text-gray-300">Last Modified:</span>
+          <span class="text-sm md:text-base text-gray-700 dark:text-gray-300">Last Modified:</span>
           <time
-            class="text-sm md:text-base text-white"
+            class="text-sm md:text-base text-black dark:text-white"
             datetime="{{ lastmod | htmlDate }}"
           >
             {{ lastmod | naturalDate }}
@@ -33,8 +33,8 @@ fontPreload: true
       class="
         max-w-3xl mx-auto prose dark:prose-invert prose-sm md:prose-base
         prose-a:decoration-dashed prose-a:underline prose-a:underline-offset-6
-        prose-a:hover:text-blue-300 prose-a:hover:decoration-solid
-        prose-a:active:text-purple-300 prose-a:active:no-underline
+        prose-a:hover:text-blue-700 dark:prose-a:hover:text-blue-300 prose-a:hover:decoration-solid
+        prose-a:active:text-purple-700 dark:prose-a:active:text-purple-300 prose-a:active:no-underline
         prose-a:focus-visible:outline-2 prose-a:focus-visible:outline-offset-0 prose-a:focus-visible:outline-blue-300
       "
     >
@@ -43,13 +43,13 @@ fontPreload: true
     <ul class="flex flex-wrap gap-x-5 gap-y-2 mt-5">
       {% for tag in tags %}
         {% if tag != 'posts' %}
-          <li class="text-base md:text-lg text-white">
+          <li class="text-base md:text-lg text-black dark:text-white">
             <a
               href="/tags/{{ tag | slugify }}/"
               class="
                 decoration-dashed underline underline-offset-6
-                hover:text-blue-300 hover:decoration-solid
-                active:text-purple-300 active:no-underline
+                hover:text-blue-700 dark:hover:text-blue-300 hover:decoration-solid
+                active:text-purple-700 dark:active:text-purple-300 active:no-underline
                 focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
               "
             >
@@ -59,7 +59,7 @@ fontPreload: true
         {% endif %}
       {% endfor %}
     </ul>
-    <p class="text-white mt-8 text-sm md:text-base">
+    <p class="text-black dark:text-white mt-8 text-sm md:text-base">
       &copy; This work is licensed under
         <a
           href="https://creativecommons.org/licenses/by/4.0/"
@@ -67,8 +67,8 @@ fontPreload: true
           rel="noopener noreferrer"
           class="
             decoration-dashed underline underline-offset-6
-            hover:text-blue-300 hover:decoration-solid
-            active:text-purple-300 active:no-underline
+            hover:text-blue-700 dark:hover:text-blue-300 hover:decoration-solid
+            active:text-purple-700 dark:active:text-purple-300 active:no-underline
             focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300
           "
         >
