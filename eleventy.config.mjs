@@ -17,6 +17,7 @@ import YAML from "yaml";
 const pipeline = postcss([
   tailwindcss(),
   autoprefixer(),
+
   cssnano({
     preset: 'default',
   })
@@ -30,10 +31,12 @@ const ensureDirectoryExists = (dir) => {
 
 const processCss = async (source, destination) => {
   const cssRaw = fs.readFileSync(source, 'utf8');
+
   const product = await pipeline.process(cssRaw, {
     from: source,
     to: destination
   });
+
   fs.writeFileSync(destination, product.css);
 }
 
@@ -83,6 +86,7 @@ export default async function (eleventyConfig) {
           if (!postsByTag[tag]) {
             postsByTag[tag] = [];
           }
+
           postsByTag[tag].push(post);
         });
       }
@@ -110,7 +114,7 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("head", (array, n) => {
-    if(!Array.isArray(array) || array.length === 0) {
+    if (!Array.isArray(array) || array.length === 0) {
       return [];
     }
 
