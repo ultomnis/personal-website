@@ -7,11 +7,13 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import fs from 'fs';
 import { DateTime } from "luxon";
+import markdownIt from "markdown-it";
 import path from 'path';
 import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
 import YAML from "yaml";
 
+// CSS
 const pipeline = postcss([
   tailwindcss(),
   autoprefixer(),
@@ -35,7 +37,29 @@ const processCss = async (source, destination) => {
   fs.writeFileSync(destination, product.css);
 }
 
+// Luxon
 const TIME_ZONE = "America/New_York";
+
+// Markdown
+const markdownLib = markdownIt();
+
+const defaultRender = markdownLib.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+  return self.renderToken(tokens, idx, options);
+};
+
+markdownLib.renderer.rules.link_open = function(tokens, idx, options, env, self) {
+  const hrefIndex = tokens[idx].attrIndex('href');
+
+  if (hrefIndex >= 0) {
+    const href = tokens[idx].attrs[hrefIndex][1]
+    if (href.startsWith('https://')) {
+      tokens[idx].attrPush(['target', '_blank']);
+      tokens[idx].attrPush(['rel', 'noopener noreferrer']);
+    }
+  }
+
+  return defaultRender(tokens, idx, options, env, self);
+};
 
 export default async function (eleventyConfig) {
   eleventyConfig.addCollection("getTags", function(collection) {
@@ -143,5 +167,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.setDataDirectory("../_data");
   eleventyConfig.setIncludesDirectory("../_includes");
   eleventyConfig.setInputDirectory("src");
+  eleventyConfig.setLibrary("md", markdownLib);
   eleventyConfig.setOutputDirectory("dist");
 }
