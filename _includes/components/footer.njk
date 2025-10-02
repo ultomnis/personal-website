@@ -32,6 +32,18 @@
           "transition-colors duration-200"
         %}
       </a>
+      <a
+        href="{{ '/feed.xml' }}"
+        aria-label="Atom Feed"
+        class="focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-blue-300"
+      >
+        {%
+          inlineSvg "feed.svg", "32", "32",
+          "fill-gray-700 hover:fill-gray-400 active:fill-gray-400 active:transition-none " +
+          "dark:fill-gray-400 dark:hover:fill-gray-100 dark:active:fill-gray-100 " +
+          "transition-colors duration-200"
+        %}
+      </a>
     </div>
     <p class="text-black dark:text-white mt-4 text-sm md:text-base">
       &copy; {% currentYear %} {{ meta.name }}. Licensed under the
